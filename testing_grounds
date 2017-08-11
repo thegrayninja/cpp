@@ -1,0 +1,84 @@
+#include "std_lib_facilities.h"
+#include "house_math.h"
+
+
+float print_vector(vector<float>vect)
+{
+    for (float i : vect)
+    {
+        cout << i << endl;
+    }
+    return 0;
+}
+
+
+int do_stuff()
+{
+    int i = 0;
+    float user_response;
+    vector<float> user_answers;
+    //cout << "Type 'q' to stop entering numbers.\n";
+    //cout << "Please enter a value: ";
+    int totalno;
+    cout << "Please enter the number of...numbers you need to...enter: ";
+    cin >> totalno;
+    while (i < totalno){
+        cout << "Please enter a value: ";
+        cin >> user_response;
+        user_answers.push_back(user_response);
+        ++i;
+    }
+    //print_vector(user_answers);
+    smallest_vector(user_answers);
+    largest_vector(user_answers);
+    cout << "wanna enter more numbers? (y/n) ";
+    string user_continue;
+    cin >> user_continue;
+    if (user_continue == "y"){do_stuff();}
+    return 0;
+}
+
+int do_stuff_prime()
+{
+    int prime_value;
+    cout << "Please enter a number to determine if it is prime: ";
+    cin >> prime_value;
+    is_prime(prime_value);
+    cout << "Wanna try again? (y/n) ";
+    string user_continue;
+    cin >> user_continue;
+    if (user_continue == "y"){do_stuff_prime();}
+    return 0;
+}
+
+int main()
+{
+
+
+
+    vector<int> prime_no;
+    int i = 1;
+    while (i< 100)
+    {
+        if (i < 4){prime_no.push_back(i);}
+        else
+        {
+            string is_it_prime = "yes";
+            for (int y = 2; y < i; ++y)
+            {
+                if (is_it_prime == "yes")
+                {
+                    if (i%y == 0){is_it_prime = "no";}
+                }
+            }
+            if (is_it_prime == "yes"){prime_no.push_back(i);}
+        }
+        ++i;
+    }
+    for (int z : prime_no){cout << z << endl;}
+
+
+    do_stuff_prime();
+    //do_stuff();
+    return 0;
+}
