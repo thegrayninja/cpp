@@ -1,6 +1,7 @@
 ##git having trouble forking/starring a profile
 ##not taking credit, but didn't want to lose this code..just in case
-##copied the raw from: 
+##copied the raw from: https://gist.github.com/toneill818/d90c85a453d935e7e9aed6eab1d75f8a
+
 
 #include <aws/core/Aws.h> 			// Needed for InitAPI, SDKOptions, Logging, and ShutdownAPI
 #include <aws/transfer/TransferClient.h> 	// Needed for the TransferClient
