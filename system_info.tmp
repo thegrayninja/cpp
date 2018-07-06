@@ -1,0 +1,12 @@
+anacron, apache2, apache-htcacheclean, apparmor, arpwatch, atftpd, avahi-daemon,
+beef-xss, binfmt-support, bluetooth, cgroupfs-mount, console-setup.sh, couchdb,
+cron, cryptdisks, cryptdisks-early, darkstat, dbus, dns2tcp, docker, exim4,
+gdm3, greenbone-security-assistant, hwclock.sh, inetsim, iodined, ipmievd,
+irqbalance, keyboard-setup.sh, kmod, live-tools, lvm2, lvm2-lvmetad,
+lvm2-lvmpolld, miredo, mysql, networking, network-manager, nginx, nmbd, ntp,
+openipmi, openvas-manager, openvas-scanner, open-vm-tools, openvpn, pcscd,
+postgresql, pppd-dns, procps, ptunnel, redis-server, redsocks, rsync, rsyslog,
+rwhod, samba-ad-dc, saned, screen-cleanup, smartmontools, smbd, snmpd,
+speech-dispatcher, ssh, sslh, stunnel4, sudo, sysstat, thin, udev,
+unattended-upgrades, uuidd, vmware-tools, vmware-tools-thinprint, x11-common,
+xinetd
