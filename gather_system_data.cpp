@@ -80,13 +80,13 @@ int main()
   std::string Services;
   std::string Json;
   //IPAddress = system("echo -n '1. Current Directory is '; pwd");
-  GetStdoutFromCommand("hostname -i | tee private_ip.tmp");
-  GetStdoutFromCommand("hostname | tee hostname.tmp");
-  GetStdoutFromCommand("echo 10.2.2.2 > public_ip.tmp");
-  GetStdoutFromCommand("ls /etc/init.d/ -m | tee system_info.tmp");
+  GetStdoutFromCommand("hostname -i | tee /dev/shm/private_ip.tmp");
+  GetStdoutFromCommand("hostname | tee /dev/shm/hostname.tmp");
+  GetStdoutFromCommand("echo 10.2.2.2 > /dev/shm/public_ip.tmp");
+  GetStdoutFromCommand("ls /etc/init.d/ -m | /dev/shm/tee system_info.tmp");
 
   string line;
-  ifstream myfile ("private_ip.tmp");
+  ifstream myfile ("/dev/shm/private_ip.tmp");
   if (myfile.is_open())
   {
     while (getline(myfile,line))
@@ -96,7 +96,7 @@ int main()
   myfile.close();
   }
 
-  ifstream myfilea ("hostname.tmp");
+  ifstream myfilea ("/dev/shm/hostname.tmp");
   if (myfilea.is_open())
   {
     while (getline(myfilea,line))
@@ -106,7 +106,7 @@ int main()
   myfilea.close();
   }
 
-  ifstream myfileb ("public_ip.tmp");
+  ifstream myfileb ("/dev/shm/public_ip.tmp");
   if (myfileb.is_open())
   {
     while (getline(myfileb,line))
@@ -142,7 +142,7 @@ cout << "ok" << endl;
   JsonPublicIP = "\"public_ip\":\"" + PublicIP + "\"";
   JsonHostname = "\"hostname\":\"" + Hostname + "\"";
   JsonSystemInfo = "\"system_info\":\"" + SystemInfo + "\"";
-  JsonData = "{" + JsonPrivateIP + "," + JsonPublicIP + "," + JsonHostname + ",\"operating_system\":\"unknown\"," + JsonSystemInfo + "}";
+  JsonData = "{" + JsonPrivateIP + "," + JsonPublicIP + "," + JsonHostname + ",\"operating_system\":\"unknown for now\"," + JsonSystemInfo + "}";
     //"{\"ip_address\":\"" + IPAddress + "\"}"
   //std::cout << JsonData << std::endl;
   SendCurlAddComputer(JsonData);
